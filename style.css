@@ -1,0 +1,143 @@
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    line-height: 1.6;
+}
+
+/* Flexbox Navigation */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: #2c3e50;
+    color: white;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+/* Grid Layout */
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "welcome"
+        "featured"
+        "news";
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.welcome {
+    grid-area: welcome;
+    text-align: center;
+    padding: 2rem;
+    background: #f4f4f4;
+    border-radius: 5px;
+}
+
+.featured {
+    grid-area: featured;
+}
+
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.book-card {
+    padding: 1.5rem;
+    background: #e8f4f8;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.news {
+    grid-area: news;
+    padding: 1.5rem;
+    background: #f4f4f4;
+    border-radius: 5px;
+}
+
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background: #2c3e50;
+    color: white;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    /* Tablet styles */
+    .navbar {
+        padding: 1rem;
+    }
+    
+    .nav-links {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        flex-direction: column;
+        background: #2c3e50;
+        padding: 1rem;
+        transition: left 0.3s;
+    }
+    
+    .nav-links.active {
+        left: 0;
+    }
+    
+    .nav-links li {
+        padding: 0.5rem 0;
+        border-bottom: 1px solid #34495e;
+    }
+    
+    .hamburger {
+        display: block;
+    }
+    
+    .container {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Mobile styles */
+    .book-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .welcome, .news {
+        padding: 1rem;
+    }
+}
